@@ -1,0 +1,21 @@
+Package: ASVD
+Type: Package
+Title: Algorithmic Selection and Variance Decomposition (ASVD)
+Version: 1.5.0
+Author: Anton Komissarenko, Vitaly Epishin
+Maintainer: Anton Komissarenko <komissarenko_tosha@mail.ru>
+Description: An analytical protocol for discovering emergent effects in complex systems. 
+    ASVD utilizes Elastic Net regularization to identify high-order interactions 
+    and non-linear patterns within large predictor sets. The protocol features 
+    automated screening, robust re-estimation via bootstrap, and simple slopes 
+    visualization to validate and interpret detected emergent phenomena.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    jmvcore (>= 0.8.0),
+    R6,
+    ggplot2,
+    glmnet,
+    car,
+    boot
