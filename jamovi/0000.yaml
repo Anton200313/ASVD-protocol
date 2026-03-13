@@ -1,0 +1,28 @@
+---
+title: Algorithmic Selection and Variance Decomposition (ASVD)
+name: ASVD
+version: 1.5.0
+jms: '1.0'
+authors:
+  - Anton Komissarenko
+  - Vitaly Epishin
+maintainer: Anton Komissarenko <komissarenko_tosha@mail.ru>
+date: '1970-01-01'
+type: R
+description: >-
+  An analytical protocol for discovering emergent effects in complex systems.
+  ASVD utilizes Elastic Net regularization to identify high-order interactions
+  and non-linear patterns within large predictor sets. The protocol features
+  automated screening, robust re-estimation via bootstrap, and simple slopes
+  visualization to validate and interpret detected emergent phenomena.
+analyses:
+  - title: ASVD Protocol
+    name: asvd
+    ns: ASVD
+    category: analyses
+    menuGroup: ASVD
+    menuTitle: ASVD Protocol
+usesNative: true
+minApp: 1.0.8
+
+...
