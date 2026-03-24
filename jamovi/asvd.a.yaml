@@ -1,0 +1,86 @@
+name:  asvd
+title: ASVD Protocol
+menuGroup: ASVD
+version: '1.5.0'
+jas: '1.2'
+options:
+    - name: data
+      type: Data
+
+    - name: dep
+      title: Dependent Variable
+      type: Variable
+
+    - name: indeps
+      title: Independent Variables
+      type: Variables
+
+    - name: step
+      title: Analysis Step
+      type: List
+      options:
+        - title: 1. Elastic Net Screening
+          name: screen
+        - title: 2. Bootstrap & Variance decomposition
+          name: final
+      default: screen
+
+    - name: alpha
+      title: Alpha (0=Ridge, 1=Lasso, 0.5=Elastic)
+      type: Number
+      default: 0.5
+      min: 0
+      max: 1
+
+    - name: autoAlpha
+      title: Auto-select Alpha (find best Elastic Net mix)
+      type: Bool
+      default: true
+
+    - name: lambdaSel
+      title: Lambda Selection
+      type: List
+      options:
+        - title: Minimum CV Error (lambda.min)
+          name: min
+        - title: Most Parsimonious (lambda.1se)
+          name: 1se
+      default: min
+
+    - name: polyOrder
+      title: Max Interaction Order
+      type: Number
+      default: 2
+      min: 1
+
+    - name: nboot
+      title: Bootstrap Samples
+      type: Number
+      default: 100
+    
+    - name: formulaText
+      title: "STEP 2: Model Formula (Paste from Step 1)"
+      type: String
+      default: ""
+
+    - name: showBeta
+      title: Show Beta Coefficients (Step 1)
+      type: Bool
+      default: true
+
+    - name: interIndex
+      title: Interaction Plot Index (1, 2, 3...)
+      type: Number
+      default: 1
+
+    - name: nfolds
+      title: Number of CV Folds (3-20)
+      type: Number
+      default: 5
+      min: 3
+      max: 20
+
+    - name: showPlot
+      title: Show Interaction Plot (Step 2)
+      type: Bool
+      default: true
