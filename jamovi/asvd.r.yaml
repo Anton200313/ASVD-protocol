@@ -1,0 +1,94 @@
+name:  asvd
+title: ASVD Protocol
+jrs:   '1.1'
+
+items:
+    - name:  text
+      title: ASVD Log
+      type:  Html
+      
+    - name:  candidatesTable
+      title: "Step 1: Selected Candidates (Elastic Net)"
+      type:  Table
+      visible: (step == "screen")
+      columns:
+        - name:  var
+          title: Term
+          type:  text
+        - name:  importance
+          title: Beta Weight
+          type:  number
+
+    - name:  metricsTable
+      title: Model Performance (Bootstrap)
+      type:  Table
+      rows: 0
+      visible: (step == "final")
+      columns:
+        - name:  metric
+          title: Metric
+          type:  text
+        - name:  value
+          title: Original
+          type:  number
+        - name:  lower
+          title: Lower CI
+          type:  number
+        - name:  upper
+          title: Upper CI
+          type:  number
+    - name:  slopesTable
+      title: "Step 2: Simple Slopes Analysis"
+      type:  Table
+      visible: (step == "final" && showPlot)
+      columns:
+        - name:  mod_level
+          title: Moderator Level(s)
+          type:  text
+        - name:  slope
+          title: Slope
+          type:  number
+        - name:  lower
+          title: Lower CI
+          type:  number
+        - name:  upper
+          title: Upper CI
+          type:  number
+    - name:  asvdTable
+      title: ASVD Variable Importance (Anova SS)
+      type:  Table
+      visible: (step == "final")
+      columns:
+        - name:  var
+          title: Predictor
+          type:  text
+        - name:  beta
+          title: Beta (Std)
+          type:  number
+        - name:  lmg
+          title: SS Share (Raw)
+          type:  number
+        - name:  lmg_p
+          title: Contribution %
+          type:  number
+        - name:  lower
+          title: Lower CI
+          type:  number
+        - name:  upper
+          title: Upper CI
+          type:  number
+    - name:  asvdVisual
+      title: ASVD Interaction Analysis
+      type:  Image
+      width: 600
+      height: 450
+      renderFun: .renderAsvd
+      visible: (step == "final" && showPlot)
+
+    - name:  elnetPlot
+      title: Elastic Net MSE & Trace
+      type:  Image
+      width: 600
+      height: 400
+      renderFun: .plotElnet
+      visible: (step == "screen")

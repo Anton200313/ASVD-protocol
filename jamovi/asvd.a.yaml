@@ -1,0 +1,72 @@
+name:  asvd
+title: ASVD Protocol
+menuGroup: ASVD
+version: '1.5.0'
+jas: '1.2'
+options:
+    - name: data
+      type: Data
+    - name: dep
+      title: Dependent Variable
+      type: Variable
+    - name: indeps
+      title: Independent Variables
+      type: Variables
+      
+    # Группа 1: Настройки шага 1 (Screening)
+    - name: step
+      title: Analysis Step
+      type: List
+      options:
+        - title: 1. Elastic Net Screening
+          name: screen
+        - title: 2. Bootstrap & Variance decomposition
+          name: final
+      default: screen
+
+    - name: alpha
+      title: Alpha (0=Ridge, 1=Lasso)
+      type: Number
+      default: 0.5
+    - name: autoAlpha
+      title: Auto-select Alpha
+      type: Bool
+      default: true
+    - name: lambdaSel
+      title: Lambda Selection
+      type: List
+      options: [ {title: lambda.min, name: min}, {title: lambda.1se, name: 1se} ]
+      default: min
+    - name: nfolds
+      title: CV Folds
+      type: Number
+      default: 5
+
+    # Группа 2: Настройки модели (Step 2)
+    - name: formulaText
+      title: "STEP 2: Model Formula"
+      type: String
+      default: ""
+
+    - name: nboot
+      title: Bootstrap Samples
+      type: Number
+      default: 100
+    - name: polyOrder
+      title: Max Interaction Order
+      type: Number
+      default: 2
+
+    # Группа 3: Визуализация
+    - name: showBeta
+      title: Beta Coefficients
+      type: Bool
+      default: true
+    - name: showPlot
+      title: Interaction Plot
+      type: Bool
+      default: true
+    - name: interIndex
+      title: Interaction Plot Index
+      type: Number
+      default: 1
